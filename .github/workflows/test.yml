@@ -1,4 +1,4 @@
-name: Publish the Docker image
+name: Testing the Docker image
 
 on:
   pull_request:
