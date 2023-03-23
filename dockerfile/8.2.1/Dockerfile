@@ -5,7 +5,7 @@ ENV PHP_MAX_EXECUTION_TIME 250
 ENV COMPOSER_MEMORY_LIMIT -1
 
 RUN apt-get update \
-  && apt-get install -y dnsutils ssl-cert libssl-dev libmongoc-1.0-0 libzip-dev libpng-dev libjpeg62-turbo-dev git wget acl libpq-dev libssl-dev libmongoc-1.0-0 apt-utils blackfire --no-install-recommends \
+  && apt-get install -y dnsutils ssl-cert libssl-dev libmongoc-1.0-0 libzip-dev libpng-dev libjpeg62-turbo-dev git wget acl libpq-dev libssl-dev libmongoc-1.0-0 apt-utils --no-install-recommends \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -24,7 +24,12 @@ RUN docker-php-ext-enable bcmath
 RUN curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.deb.sh' | bash
 RUN apt-get install -y symfony-cli
 
-#RUN curl https://installer.blackfire.io/installer.sh | bash
-#RUN blackfire php:install
+ENV BLACKFIRE_CLIENT_ID "BLACKFIRE_CLIENT_ID"
+ENV BLACKFIRE_CLIENT_TOKEN "BLACKFIRE_CLIENT_TOKEN"
+ENV BLACKFIRE_SERVER_ID "BLACKFIRE_SERVER_ID"
+ENV BLACKFIRE_SERVER_TOKEN "BLACKFIRE_SERVER_TOKEN"
+bash -c "$(curl -L https://installer.blackfire.io/installer.sh)"
+
+RUN blackfire php:install
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
