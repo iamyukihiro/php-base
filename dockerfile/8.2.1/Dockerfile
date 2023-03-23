@@ -9,8 +9,8 @@ RUN apt-get update \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN pecl install grpc
-RUN pecl install mongodb
+#RUN pecl install grpc
+#RUN pecl install mongodb
 RUN docker-php-ext-install zip
 RUN docker-php-ext-install pdo_pgsql
 RUN docker-php-ext-install pdo_mysql
