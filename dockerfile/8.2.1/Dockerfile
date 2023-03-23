@@ -31,3 +31,5 @@ ENV BLACKFIRE_SERVER_TOKEN "BLACKFIRE_SERVER_TOKEN"
 RUN bash -c "$(curl -L https://installer.blackfire.io/installer.sh)" || true
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+WORKDIR /var/www/html
