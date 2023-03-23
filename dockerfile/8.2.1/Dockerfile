@@ -28,8 +28,7 @@ ENV BLACKFIRE_CLIENT_ID "BLACKFIRE_CLIENT_ID"
 ENV BLACKFIRE_CLIENT_TOKEN "BLACKFIRE_CLIENT_TOKEN"
 ENV BLACKFIRE_SERVER_ID "BLACKFIRE_SERVER_ID"
 ENV BLACKFIRE_SERVER_TOKEN "BLACKFIRE_SERVER_TOKEN"
-bash -c "$(curl -L https://installer.blackfire.io/installer.sh)"
-
+RUN bash -c "$(curl -L https://installer.blackfire.io/installer.sh)"
 RUN blackfire php:install
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
