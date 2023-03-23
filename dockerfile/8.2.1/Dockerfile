@@ -17,11 +17,14 @@ RUN docker-php-ext-install pdo_mysql
 RUN docker-php-ext-install bcmath
 RUN docker-php-ext-install pcntl
 RUN docker-php-ext-install gd
-RUN docker-php-ext-enable grpc
-RUN docker-php-ext-enable mongodb
+#RUN docker-php-ext-enable grpc
+#RUN docker-php-ext-enable mongodb
 RUN docker-php-ext-enable bcmath
 
 RUN curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.deb.sh' | bash
 RUN apt-get install -y symfony-cli
+
+RUN curl https://installer.blackfire.io/installer.sh | bash
+RUN blackfire php:install
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
