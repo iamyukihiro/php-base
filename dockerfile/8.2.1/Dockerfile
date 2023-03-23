@@ -5,7 +5,7 @@ ENV PHP_MAX_EXECUTION_TIME 250
 ENV COMPOSER_MEMORY_LIMIT -1
 
 RUN apt-get update \
-  && apt-get install -y dnsutils ssl-cert libssl-dev libmongoc-1.0-0 libzip-dev libpng-dev libjpeg62-turbo-dev git wget acl libpq-dev libssl-dev libmongoc-1.0-0 --no-install-recommends \
+  && apt-get install -y dnsutils ssl-cert libssl-dev libmongoc-1.0-0 libzip-dev libpng-dev libjpeg62-turbo-dev git wget acl libpq-dev libssl-dev libmongoc-1.0-0 apt-utils --no-install-recommends \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
