@@ -1,0 +1,25 @@
+# https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/.github/workflows/"
+    schedule:
+      interval: "weekly"
+
+  - package-ecosystem: docker
+    directory: "/dockerfile/8.3/"
+    schedule:
+      interval: weekly
+    ignore:
+      - dependency-name: '*'
+        update-types:
+          - version-update:semver-minor
+
+  - package-ecosystem: docker
+    directory: "/dockerfile/8.2/"
+    schedule:
+      interval: weekly
+    ignore:
+      - dependency-name: '*'
+        update-types:
+          - version-update:semver-minor

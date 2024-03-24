@@ -19,8 +19,14 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build the Docker image (php-base:8.2.1)
-        run: docker build . --file /home/runner/work/php-base/php-base/dockerfile/8.2.1/Dockerfile --tag ghcr.io/$GITHUB_ACTOR/php-base:8.2.1
+      - name: Build the Docker image (php-base:8.2)
+        run: docker build . --file /home/runner/work/php-base/php-base/dockerfile/8.2/Dockerfile --tag ghcr.io/$GITHUB_ACTOR/php-base:8.2
 
-      - name: Push Docker Image (php-base:8.2.1)
-        run: docker push ghcr.io/$GITHUB_ACTOR/php-base:8.2.1
+      - name: Push Docker Image (php-base:8.2)
+        run: docker push ghcr.io/$GITHUB_ACTOR/php-base:8.2
+
+      - name: Build the Docker image (php-base:8.3)
+        run: docker build . --file /home/runner/work/php-base/php-base/dockerfile/8.3/Dockerfile --tag ghcr.io/$GITHUB_ACTOR/php-base:8.3
+
+      - name: Push Docker Image (php-base:8.3)
+        run: docker push ghcr.io/$GITHUB_ACTOR/php-base:8.3
