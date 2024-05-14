@@ -1,4 +1,4 @@
-FROM php:8.2.18-bookworm
+FROM php:8.2.19-bookworm
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
