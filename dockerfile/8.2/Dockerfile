@@ -20,6 +20,8 @@ RUN apt-get update \
 
 RUN mkdir /tmp/xdebug; chmod 777 /tmp/xdebug
 
+RUN composer global require rector/rector
+
 ENV TZ Asia/Tokyo
 ENV LANG ja_JP.UTF-8
 ENV LANGUAGE ja_JP:ja
